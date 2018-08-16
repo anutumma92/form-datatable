@@ -1,0 +1,125 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <h3>User Details</h3>
+  <label>
+    User Name:
+    <input type="text" formControlName="userName" required>
+  </label>
+
+  <label>
+    Email:
+    <input type="email" formControlName="email">
+  </label>
+
+<label>
+    Full name:
+    <input type="text" formControlName="fullName">
+  </label>
+
+  <div formGroupName="other_details">
+    <h3>Other Details</h3>
+
+    <label>
+      Country:
+      <select formControlName="country">
+        <option value="india">India</option>
+        <option value="germany">Germany</option>
+        <option value="uae">UAE</option>
+        <option value="australia">Australia</option>
+        <option value="france">France</option>
+        <option value="england">England</option>
+        <option value="canada">Canada</option>
+      </select>
+    </label>
+
+    <label>
+      Telephone number:
+      <input type="text" formControlName="telephone_number">
+    </label>
+    
+    <label>
+      Date of birth:
+      <input type="date" formControlName="dob">
+    </label>
+
+    <label>
+      Sex
+      
+    </label>
+    <input type="radio" name="gender" value="male" checked> Male<br>
+  <input type="radio" name="gender" value="female"> Female<br>
+  </div>
+
+  
+
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<hr>
+
+
+
+<!--<p>
+  <button (click)="updateProfile()">Update Profile</button>
+</p> 
+-->
+
+
+<div>
+  <data-table
+    [title]="'User Results'"
+    [items]="users"
+    [itemCount]="userCount"
+    (reload)="reloadUsers($event)"
+    [pagination]="true"
+    [indexColumn]="false"
+    [selectColumn]="true"
+    [multiSelect]="true"
+    [primaryColumn]="'model'"
+    [pageLimits]="[2, 4, 8]"
+    [expandableRows]="true"
+    [selectOnRowClick]="true"
+    [noDataMessage]="'No rows found'"
+    [rowColors]="rowColors">
+    <ng-template #dataTableExpand >
+            <div style="padding: 5px; color: gray">Other details</div>
+            <table>
+              <thead>
+                <td>Telephone number</td>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>tasj</td>
+                </tr>
+              </tbody>
+            </table>
+            <!--<data-table-column
+            property="telephone_number"
+            header="Telephone number"
+            expandable="true">
+          </data-table-column>-->
+        </ng-template>
+    <data-table-column
+      property="userName"
+      header="User Name"
+      sortable="true">
+      
+    </data-table-column>
+    <data-table-column
+      property="email"
+      header="Email"
+      sortable="true">
+    </data-table-column>
+    <data-table-column
+      property="fullName"
+      header="Full Name"
+      sortable="true">
+    </data-table-column>
+    <data-table-column
+      property="country"
+      header="Country"
+      expandable="true">
+    </data-table-column>
+    
+  </data-table>
+  
+</div>

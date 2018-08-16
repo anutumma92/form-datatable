@@ -9,11 +9,11 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
-      /*"styles": [
+      "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.css",
         "styles.css"
-      ],*/
+      ],
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
